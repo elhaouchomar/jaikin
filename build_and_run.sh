@@ -4,7 +4,7 @@
 set -e
 
 # Name of the Java file (without extension)
-CLASS_NAME="window"
+CLASS_NAME="jaikin"
 
 # Compile the Java file
 echo "Compiling ${CLASS_NAME}.java..."
