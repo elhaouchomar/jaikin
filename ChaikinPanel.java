@@ -34,7 +34,7 @@ public class ChaikinPanel extends JPanel implements Runnable {
                 Thread.sleep(16);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
-                e.printStackTrace();
+                break;
             }
         }
     }
@@ -58,17 +58,16 @@ public class ChaikinPanel extends JPanel implements Runnable {
     }
 
     private static List<Point2D.Float> chaikin(List<Point2D.Float> points) {
-        if (points.size() < 2) {
+        if (points.size() < 3) {
             return new ArrayList<>(points);
         }
-
         List<Point2D.Float> newPoints = new ArrayList<>();
         newPoints.add(points.get(0));
 
         for (int i = 0; i < points.size() - 1; i++) {
             Point2D.Float p0 = points.get(i);
             Point2D.Float p1 = points.get(i + 1);
-            
+
             float qx = p0.x + (p1.x - p0.x) * 0.25f;
             float qy = p0.y + (p1.y - p0.y) * 0.25f;
             float rx = p0.x + (p1.x - p0.x) * 0.75f;

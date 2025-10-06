@@ -13,7 +13,9 @@ public class InputHandler extends MouseAdapter implements KeyListener {
     public void mousePressed(MouseEvent e) {
         if (panel.isAnimating()) return;
         
-        panel.getControlPoints().add(new Point2D.Float(e.getX(), e.getY()));
+        if (e.getButton() == MouseEvent.BUTTON1) {
+            panel.getControlPoints().add(new Point2D.Float(e.getX(), e.getY()));
+        }
     }
 
     @Override
